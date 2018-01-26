@@ -16,6 +16,10 @@ Page({
   },
   getLogs: function() {
     let logs = wx.getStorageSync('logs')
+    //没有数据不遍历
+    if (!logs.length){
+      return
+    }
     logs.forEach(function(item, index, arry) {
       item.startTime = new Date(item.startTime).toLocaleString()
     })
